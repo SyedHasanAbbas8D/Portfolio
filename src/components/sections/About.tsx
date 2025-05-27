@@ -33,8 +33,7 @@ const skills = [
   'Three.js',
   'GSAP',
   'MongoDB',
-  'PostgreSQL',
-  'AWS'
+  'Express.js',
 ]
 
 export default function About() {
@@ -51,6 +50,7 @@ export default function About() {
           trigger: sectionRef.current,
           start: "top center",
           end: "bottom center",
+          // markers: true ,
           toggleActions: "play none none reverse"
         }
       })
@@ -69,9 +69,9 @@ export default function About() {
             <div>
               <h3 className="text-2xl font-semibold mb-4">Who I Am</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                I'm a passionate web developer with expertise in creating modern, 
+                I'm Hasan Abbas a passionate web developer with expertise in creating modern, 
                 responsive, and user-friendly websites. With a strong foundation in 
-                both frontend and backend development, I bring ideas to life through 
+                both frontend and backend development, with smooth Ui and Animations and 3D animations, I bring ideas to life through 
                 clean code and innovative solutions.
               </p>
             </div>
@@ -79,7 +79,10 @@ export default function About() {
               <h3 className="text-2xl font-semibold mb-4">My Services</h3>
               <div className="space-y-4">
                 {services.map((service, index) => (
-                  <div key={index} className="flex items-start space-x-4">
+                  <div
+                    key={index}
+                    className="flex items-start space-x-4 transition-transform duration-300 hover:scale-105 hover:shadow-lg bg-white/70 dark:bg-gray-800/70 rounded-lg p-3"
+                  >
                     <span className="text-2xl">{service.icon}</span>
                     <div>
                       <h4 className="font-semibold">{service.title}</h4>
@@ -99,7 +102,7 @@ export default function About() {
               {skills.map((skill, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-sm font-medium"
+                  className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-sm font-medium transition-colors duration-300 hover:bg-purple-600 hover:text-white"
                 >
                   {skill}
                 </span>
@@ -110,4 +113,4 @@ export default function About() {
       </div>
     </section>
   )
-} 
+}

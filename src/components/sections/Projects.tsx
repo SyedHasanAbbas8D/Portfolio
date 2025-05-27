@@ -9,10 +9,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-featured online store with payment processing and inventory management.',
+    title: 'E-commerce Demo',
+    description: 'A demo ecommerce website homepage.',
     image: '/projects/ecommerce.jpg',
-    technologies: ['Next.js', 'Stripe', 'MongoDB'],
+    technologies: ['Next.js', 'Gsap', 'Three.js', 'HeroUI'],
     link: '#'
   },
   {
@@ -23,10 +23,10 @@ const projects = [
     link: '#'
   },
   {
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates.',
+    title: 'Grading Calculator',
+    description: 'A grade calculator app.',
     image: '/projects/taskmanager.jpg',
-    technologies: ['React', 'Firebase', 'Tailwind CSS'],
+    technologies: ['React', 'Tailwind CSS'],
     link: '#'
   }
 ]
@@ -46,6 +46,7 @@ export default function Projects() {
           trigger: sectionRef.current,
           start: "top center",
           end: "bottom center",
+          // markers: true,
           toggleActions: "play none none reverse"
         }
       })
@@ -64,17 +65,20 @@ export default function Projects() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                className="group bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow transform hover:-translate-y-2 hover:scale-105 duration-300 cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="relative h-48 bg-gray-200 dark:bg-gray-600">
+                <div className="relative h-48 bg-gray-200 dark:bg-gray-600 overflow-hidden">
                   {/* Add actual project images later */}
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-400 transition-colors group-hover:text-purple-500 duration-300">
                     Project Image
                   </div>
+                  <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/10 transition-colors duration-300" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors duration-300">
+                    {project.title}
+                  </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
                     {project.description}
                   </p>
@@ -82,7 +86,7 @@ export default function Projects() {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-sm"
+                        className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-sm transition-colors duration-300 group-hover:bg-purple-200 dark:group-hover:bg-purple-800"
                       >
                         {tech}
                       </span>
@@ -146,4 +150,4 @@ export default function Projects() {
       </Dialog.Root>
     </section>
   )
-} 
+}

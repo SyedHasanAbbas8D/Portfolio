@@ -12,7 +12,7 @@ export default function Home() {
       <About />
       <Projects />
       {/* <Testimonials /> */}
-      {/* <InstagramCTA /> */}
+      <InstagramCTA />
       <Contact />
     </main>
   )

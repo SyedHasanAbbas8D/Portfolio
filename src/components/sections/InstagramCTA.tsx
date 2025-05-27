@@ -20,6 +20,7 @@ export default function InstagramCTA() {
           trigger: sectionRef.current,
           start: "top center",
           end: "bottom center",
+          // markers: true ,
           toggleActions: "play none none reverse"
         }
       })
@@ -29,33 +30,42 @@ export default function InstagramCTA() {
   return (
     <section id="instagram" className="py-20 bg-gradient-to-br from-purple-600 to-indigo-700">
       <div className="container mx-auto px-4">
-        <div ref={sectionRef} className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <div ref={sectionRef} className="max-w-4xl mx-auto flex flex-col items-center text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
             Follow My Journey on Instagram
           </h2>
-          <p className="text-xl mb-8 text-purple-100">
+          <p className="text-xl mb-8 text-purple-100 text-center">
             Get a behind-the-scenes look at my latest projects, tech insights, and daily life as a web developer.
           </p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            {/* Placeholder for Instagram feed preview */}
-            {[...Array(4)].map((_, index) => (
-              <div
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 w-full">
+            {[
+              {
+                url: "https://www.instagram.com/p/DJ86L8jJxnu_JTJhrePj-DKr8jQyTaAITPo9ag0/",
+                label: "Instagram Post 1"
+              },
+              {
+                url: "https://www.instagram.com/p/DJ6puycs52WW_Xyc0zeEdNGZnekfDiQ--aM9XE0/",
+                label: "Instagram Post 2"
+              }
+            ].map((post, index) => (
+              <a
                 key={index}
-                className="aspect-square bg-white/10 rounded-lg overflow-hidden"
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-72 md:h-96 bg-white/10 rounded-2xl overflow-hidden flex items-center justify-center text-white/70 text-2xl font-semibold transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
               >
-                <div className="w-full h-full flex items-center justify-center text-white/50">
-                  Instagram Post
-                </div>
-              </div>
+                {post.label}
+              </a>
             ))}
           </div>
 
           <a
-            href="https://instagram.com/your-handle"
+            href="https://www.instagram.com/hasan_a974/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-purple-600 rounded-full font-semibold hover:bg-purple-50 transition-colors"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white text-purple-600 rounded-full font-semibold hover:bg-purple-50 hover:text-purple-700 hover:scale-105 hover:shadow-lg transition-all duration-200 mt-4"
           >
             <svg
               className="w-6 h-6 mr-2"
@@ -75,4 +85,4 @@ export default function InstagramCTA() {
       </div>
     </section>
   )
-} 
+}

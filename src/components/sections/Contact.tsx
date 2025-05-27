@@ -28,6 +28,7 @@ export default function Contact() {
           trigger: sectionRef.current,
           start: "top center",
           end: "bottom center",
+          // markers: true ,
           toggleActions: "play none none reverse"
         }
       })
@@ -72,7 +73,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all duration-200 hover:border-purple-500 hover:shadow-md"
               />
             </div>
 
@@ -87,7 +88,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all duration-200 hover:border-purple-500 hover:shadow-md"
               />
             </div>
 
@@ -102,14 +103,14 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all duration-200 hover:border-purple-500 hover:shadow-md"
               />
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-transform transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 hover:shadow-lg"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
@@ -134,4 +135,4 @@ export default function Contact() {
       </Toast.Provider>
     </section>
   )
-} 
+}
