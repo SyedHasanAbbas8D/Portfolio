@@ -11,23 +11,16 @@ const projects = [
   {
     title: 'E-commerce Demo',
     description: 'A demo ecommerce website homepage.',
-    image: '/projects/ecommerce.jpg',
+    image: '/Screenshot(15).jpg',
     technologies: ['Next.js', 'Gsap', 'Three.js', 'HeroUI'],
-    link: '#'
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'A modern portfolio website with 3D animations and interactive elements.',
-    image: '/projects/portfolio.jpg',
-    technologies: ['React', 'Three.js', 'GSAP'],
-    link: '#'
+    link: 'https://hasanabbasdemo.netlify.app'
   },
   {
     title: 'Grading Calculator',
     description: 'A grade calculator app.',
-    image: '/projects/taskmanager.jpg',
+    image: '/Screenshot(16).jpg',
     technologies: ['React', 'Tailwind CSS'],
-    link: '#'
+    link: 'https://hasanabbas8d.github.io/Grading-app/'
   }
 ]
 
@@ -61,32 +54,34 @@ export default function Projects() {
             Featured Projects
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow transform hover:-translate-y-2 hover:scale-105 duration-300 cursor-pointer"
+                className="group bg-gray-50 dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow transform hover:-translate-y-2 hover:scale-105 duration-300 cursor-pointer p-6"
+                style={{ minHeight: 420 }}
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="relative h-48 bg-gray-200 dark:bg-gray-600 overflow-hidden">
-                  {/* Add actual project images later */}
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-400 transition-colors group-hover:text-purple-500 duration-300">
-                    Project Image
-                  </div>
+                <div className="relative h-80 bg-gray-200 dark:bg-gray-600 overflow-hidden mb-4 rounded-xl flex items-center justify-center">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/10 transition-colors duration-300" />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors duration-300">
+                <div>
+                  <h3 className="text-2xl font-bold mb-3 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-5">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-sm transition-colors duration-300 group-hover:bg-purple-200 dark:group-hover:bg-purple-800"
+                        className="px-4 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-base transition-colors duration-300 group-hover:bg-purple-200 dark:group-hover:bg-purple-800"
                       >
                         {tech}
                       </span>
@@ -108,11 +103,12 @@ export default function Projects() {
                 <Dialog.Title className="text-2xl font-bold mb-4">
                   {selectedProject.title}
                 </Dialog.Title>
-                <div className="relative h-64 bg-gray-200 dark:bg-gray-600 rounded-lg mb-6">
-                  {/* Add actual project images later */}
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                    Project Image
-                  </div>
+                <div className="relative h-64 bg-gray-200 dark:bg-gray-600 rounded-lg mb-6 flex items-center justify-center">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="object-cover w-full h-full rounded-lg"
+                  />
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">
                   {selectedProject.description}
